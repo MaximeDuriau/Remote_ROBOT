@@ -1,0 +1,343 @@
+/* Taille de la page 1610x920 */
+html,
+body {
+  background-color: #222; /* Couleur de fond de la page */
+  font-family: Arial, sans-serif; /* Police de caractères par défaut */
+  color: #ddd; /* Couleur de texte par défaut */
+}
+#containerVitesse{
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  width: 300px;
+  height: 150px;
+}
+#vitesse{
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 150px 150px;
+  border-top-right-radius: 150px 150px;
+  background: radial-gradient(circle, #1b262c 0%, #21303a 50%, #4caf50 100%);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #4caf50; /* Bordure verte */
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.3); /* Légère ombre avec couleur blanche */
+}
+#needle {
+  width: 2px;
+  height: 75px;
+  background-color: #ffcc00;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform-origin: bottom center;
+  transform: rotate(-90deg);
+}
+
+.mark {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 30px;
+  background-color: #4caf50; /* Blanc */
+  transform-origin: bottom;
+  transform: rotate(var(--deg));
+}
+
+#containeradar {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 200px; /* Ajustez la largeur et la hauteur à votre convenance */
+  height: 200px; /* Ajustez la largeur et la hauteur à votre convenance */
+}
+
+#radar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%; /* Utilisation d'un rayon de 50% pour obtenir un cercle complet */
+  background: radial-gradient(circle, #1b262c 0%, #21303a 50%, #4caf50 100%);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #4caf50; /* Bordure verte */
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.3); /* Légère ombre avec couleur blanche */
+}
+
+#point {
+  width: 10px;
+  height: 10px;
+  background-color: #4caf50;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%; /* Placer le point au milieu verticalement */
+  left: 50%; /* Placer le point au milieu horizontalement */
+  transform: translate(-50%, -50%); /* Déplacer le point de moitié de sa taille vers le haut et vers la gauche */
+}
+
+
+.arrow-containertop {
+  position: fixed;
+  bottom: 70px;
+  left: 55%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+}
+
+.arrow-containerdown {
+  position: fixed;
+  bottom: 20px;
+  left: 55%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+}
+
+.arrow-containerleft {
+  position: fixed;
+  bottom: 20px;
+  left: 52%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+}
+
+.arrow-containerright {
+  position: fixed;
+  bottom: 20px;
+  left: 58%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+}
+
+.arrow {
+  width: 40px;
+  height: 40px;
+  background-color: #1b262c; /* Couleur de fond de la flèche */
+  border: 2px solid #4caf50; /* Bordure verte */
+  border-radius: 10%; /* Arrondissement des coins */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.arrow:hover {
+  background-color: #4caf50; /* Couleur de fond au survol */
+}
+
+.arrow.up::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 15px solid #4caf50; /* Couleur de la pointe de la flèche */
+  transform: translateY(-2px);
+}
+
+.arrow.down::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 15px solid #4caf50; /* Couleur de la pointe de la flèche */
+  transform: translateY(2px);
+}
+
+.arrow.left::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 15px solid #4caf50; /* Couleur de la pointe de la flèche */
+  transform: translateX(-2px);
+}
+
+.arrow.right::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 15px solid #4caf50; /* Couleur de la pointe de la flèche */
+  transform: translateX(2px);
+}
+
+
+#videoContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid b#4caf50;
+  overflow: hidden;
+  max-width: 100%; /* Pour que le conteneur ne dépasse pas la taille de l'image */
+  max-height: 100%; /* Pour que le conteneur ne dépasse pas la taille de l'image */
+}
+
+#videoContainer img {
+  width: 100%; /* Ajuster la largeur de l'image pour remplir le conteneur */
+  height: auto; /* Garder l'aspect ratio */
+  display: block;
+  margin: auto;
+  background-color: hsl(0, 94%, 51%);
+}
+
+.message-container {
+  position: absolute;
+  font-size: 16px;
+  background-color: #1b262c; /* Couleur de fond du conteneur */
+  padding: 15px; /* Légère augmentation de l'espacement intérieur pour un aspect plus aéré */
+  border-radius: 10px; /* Arrondissement des coins pour une apparence plus douce */
+  font-family: "Orbitron", sans-serif; /* Utilisation de la police d'écriture ROBOT */
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.3); /* Ajout d'une légère ombre pour un effet de profondeur */
+  border: 1px solid #4caf50; /* Bordure verte */
+  color: #4caf50; /* Changement de couleur du texte pour une meilleure lisibilité */
+  bottom: 20px; /* Position en bas */
+  right: 20px; /* Position à droite */
+}
+
+.message-capteurVitesse{
+  position: absolute;
+  font-size: 16px;
+  background-color: #1b262c; /* Couleur de fond du conteneur */
+  padding: 15px; /* Légère augmentation de l'espacement intérieur pour un aspect plus aéré */
+  border-radius: 10px; /* Arrondissement des coins pour une apparence plus douce */
+  font-family: "Orbitron", sans-serif; /* Utilisation de la police d'écriture ROBOT */
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.3); /* Ajout d'une légère ombre pour un effet de profondeur */
+  border: 1px solid #4caf50; /* Bordure verte */
+  color: #4caf50; /* Changement de couleur du texte pour une meilleure lisibilité */
+  bottom: 20vh; /* Position en bas */
+  left: 10vh; /* Position à droite */
+}
+.message-capteurDistance{
+  position: absolute;
+  font-size: 16px;
+  background-color: #1b262c; /* Couleur de fond du conteneur */
+  padding: 15px; /* Légère augmentation de l'espacement intérieur pour un aspect plus aéré */
+  border-radius: 10px; /* Arrondissement des coins pour une apparence plus douce */
+  font-family: "Orbitron", sans-serif; /* Utilisation de la police d'écriture ROBOT */
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.3); /* Ajout d'une légère ombre pour un effet de profondeur */
+  border: 1px solid #4caf50; /* Bordure verte */
+  color: #4caf50; /* Changement de couleur du texte pour une meilleure lisibilité */
+  bottom: 70vh; /* Position en bas */
+  right: 5vh; /* Position à droite */
+}
+
+#servoMessage {
+  bottom: 20px;
+  right: 20px;
+}
+
+#motorSpeed {
+  bottom: 80px;
+  right: 20px;
+}
+
+#test{
+  bottom: 140px;
+  right: 20px;
+}
+
+#containerBatterie {
+  position: absolute;
+  bottom: 94vh;
+  left: 1vh;
+  width: 90px;
+  height: 45px;
+}
+
+#battery {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #1b262c; /* Couleur de fond cyberpunk */
+  border: 1px solid #4caf50; /* Bordure verte */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  font-size: 14px;
+  border-radius: 10px; /* Arrondissement des coins pour une apparence plus douce */
+  font-family: "Orbitron", sans-serif; /* Utilisation de la police d'écriture ROBOT */
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.3); /* Ajout d'une légère ombre pour un effet de profondeur */
+  color: #4caf50; /* Couleur du texte verte */
+}
+
+#batteryFill {
+  height: 100%;
+  background-color: #ff6600; /* Couleur de remplissage de la batterie orange */
+  transform-origin: left top;
+  transform: scaleX(0.5); /* Nous fixons une largeur initiale de 50% (exemple) */
+}
+
+
+#batteryPercentage {
+  z-index: 2;
+}
+
+.my-buttonN {
+  background-color: #1b262c; /* Couleur de fond du bouton */
+  position: fixed;
+  bottom: 20px; /* Positionner le bouton à 20px du bas */
+  right: 450px; /* Positionner le bouton à 100px du bord droit */
+  border: 1px solid #4caf50; /* Supprimer la bordure */
+  color: #4caf50; /* Couleur du texte verte */
+  padding: 10px 20px; /* Espacement à l'intérieur du bouton */
+  text-align: center; /* Centrer le texte */
+  text-decoration: none; /* Supprimer la décoration du texte */
+  display: inline-block; /* Afficher en ligne */
+  font-size: 16px; /* Taille de la police */
+  margin: 4px 2px; /* Marge extérieure */
+  cursor: pointer; /* Curseur pointer au survol */
+  border-radius: 8px; /* Bordure arrondie */
+  transition-duration: 0.4s; /* Durée de la transition */
+  background-image: linear-gradient(45deg, #1b262c 25%, transparent 25%, transparent 50%, #1b262c 50%, #1b262c 75%, transparent 75%, transparent);
+  background-size: 40px 40px; /* Taille des motifs */
+  font-family: 'Orbitron', sans-serif; /* Police de caractères futuriste */
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.3); /* Ajout d'une légère ombre pour un effet de profondeur */
+}
+
+.my-buttonN:hover {
+  background-color: #4caf50; /* Couleur de fond au survol */
+  color: #fff; /* Couleur du texte au survol */
+}
+.my-buttonA {
+  background-color: #1b262c; /* Couleur de fond du bouton */
+  position: fixed;
+  bottom: 75px; /* Positionner le bouton à 20px du bas */
+  right: 450px; /* Positionner le bouton à 100px du bord droit */
+  border: 1px solid #4caf50; /* Supprimer la bordure */
+  color: #4caf50; /* Couleur du texte verte */
+  padding: 10px 20px; /* Espacement à l'intérieur du bouton */
+  text-align: center; /* Centrer le texte */
+  text-decoration: none; /* Supprimer la décoration du texte */
+  display: inline-block; /* Afficher en ligne */
+  font-size: 16px; /* Taille de la police */
+  margin: 4px 2px; /* Marge extérieure */
+  cursor: pointer; /* Curseur pointer au survol */
+  border-radius: 8px; /* Bordure arrondie */
+  transition-duration: 0.4s; /* Durée de la transition */
+  background-image: linear-gradient(45deg, #1b262c 25%, transparent 25%, transparent 50%, #1b262c 50%, #1b262c 75%, transparent 75%, transparent);
+  background-size: 40px 40px; /* Taille des motifs */
+  font-family: 'Orbitron', sans-serif; /* Police de caractères futuriste */
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.3); /* Ajout d'une légère ombre pour un effet de profondeur */
+}
+
+.my-buttonA:hover {
+  background-color: #4caf50; /* Couleur de fond au survol */
+  color: #fff; /* Couleur du texte au survol */
+}
+
+
+

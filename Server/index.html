@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <script src="script.js"></script>
+  <script src="functions.js"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Robot</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="containeradar">
+      <div id="radar">
+        <div id="point"></div>
+      </div>
+    </div>
+    <div id="containerVitesse">
+      <div id="vitesse"></div>
+      <div id="needle"></div>
+      <div class="mark" style="--deg: 0"></div>
+    </div>
+    <div class="arrow-containertop">
+      <div class="arrow up"></div>
+    </div>
+    <div class="arrow-containerdown">
+      <div class="arrow down"></div>
+    </div>
+    <div class="arrow-containerleft">
+      <div class="arrow left"></div>
+    </div>
+    <div class="arrow-containerright">
+      <div class="arrow right"></div>
+    </div>
+    <div id="videoContainer"><img src=http://192.168.255.88:81/stream /></div>
+
+    <!-- Conteneur pour afficher le message du servo moteur et la vitesse du moteur -->
+    <div id="messageContainer" class="message-container">
+      <div id="servoMessage"></div>
+      <div id="motorSpeed"></div>
+    </div>
+    <div id="messageCapteur" class="message-capteurVitesse">
+      <div id="compteurVitesse">Vitesse = 20 cm/s</div>
+    </div>
+    <div id="messageCapteur" class="message-capteurDistance">
+      <div id="compteurDistance"></div>
+    </div>
+    <div id="test" class="message-container">"TEST"</div>
+    <div id="containerBatterie">
+      <div id="battery">
+        <div id="batteryFill"></div>
+        <div id="batteryPercentage">100%</div>
+      </div>
+    </div>
+
+    <!-- Bouton Position Neutre -->
+    <button class="my-buttonN">Position Neutre</button>
+    <button class="my-buttonA">Position Attaque</button>
+  </body>
+</html>
